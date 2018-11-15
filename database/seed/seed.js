@@ -131,8 +131,7 @@ const fakeDataGenerator = (n) => {
 
 fakeDataGenerator(1000000)
 
-
-
+//this is a postgres branch
 
 // id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
 // item_name: { type: Sequelize.STRING },
