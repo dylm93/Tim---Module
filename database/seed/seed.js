@@ -8,7 +8,7 @@ const basketballShoes = require('./fakeAdidasData/basketballShoes.json');
 const accessories = require('./fakeAdidasData/accessories.json');
 const footballCleats = require('./fakeAdidasData/footballCleats.json');
 
-var seedDataFile = __dirname + '/../seedData/seed.txt';
+var seedDataFile = __dirname + '/../seedData/seed.csv';
 /*
 1 - 10 = basketball shoes
 11-20 = football shoes
@@ -71,14 +71,44 @@ const mockSpecifications = (...args) => {
 
 
 const fakeDataGenerator = (n) => {
-  var total = n
-  var selected = [];
+  // var total = n
+  // var selected = [];
 
-    while (total > 0) {
-      console.log ('***********start***********', selected, '********')
-      console.log('********total', total, '************')
-    for (var i = 0; i < 5000; i++) {
-      var productName = faker.commerce.productName();
+  //   while (total > 0) {
+  //     console.log ('***********start***********', selected, '********')
+  //     console.log('********total', total, '************')
+  //   for (var i = 0; i < 5000; i++) {
+  //     var productName = faker.commerce.productName();
+  //     var categoryName = faker.commerce.department();
+  //     var productType = faker.commerce.product();
+  //     var description = faker.lorem.sentence();
+  //     var specification = faker.random.words();
+  //     var catchphrase = faker.random.word();  
+  //     var productDetails = faker.lorem.sentence();
+  //     var price = Math.floor(Math.random() * (500 - 50)) + 50;
+  //     var image = `https://loremflickr.com/500/400?random=1`
+
+  //     var template = {productName, categoryName, productType, description, specification,
+  //     catchphrase, productDetails, price, image}
+  //       selected.push(template)  
+  //   }
+
+  //   for (var i = 0; i < selected.length; i++) {
+  //   fs.appendFile(seedDataFile, `${selected[i]['productName']}|${selected[i]['categoryName']}|${selected[i]['productType']}|${selected[i]['description']}|${selected[i]['specification']}|${selected[i]['catchphrase']}|${selected[i]['productDetails']}|${selected[i]['price']}|${selected[i]['image']}\n`, 'utf-8', (err) => {
+  //     if (err) {
+  //       console.error(err)
+  //     }
+  //     })
+
+  //   }
+  //   selected = [];
+  //   total = total - 10000;
+  // }
+
+  const writeFile = fs.createWriteStream (seedDataFile, {flags: 'a'})
+
+  for (var i = 0; i < 1000000; i ++) {
+    var productName = faker.commerce.productName();
       var categoryName = faker.commerce.department();
       var productType = faker.commerce.product();
       var description = faker.lorem.sentence();
@@ -86,27 +116,20 @@ const fakeDataGenerator = (n) => {
       var catchphrase = faker.random.word();  
       var productDetails = faker.lorem.sentence();
       var price = Math.floor(Math.random() * (500 - 50)) + 50;
-      var image = `https://loremflickr.com/500/400?random=1`
+      var image = `https://picsum.photos/200/300/?random`
 
-      var template = {productName, categoryName, productType, description, specification,
-      catchphrase, productDetails, price, image}
-        selected.push(template)  
-    }
+      var template = `${productName}|${categoryName}|${productType}|${description}|${specification}|${catchphrase}|${productDetails}|${price}|${image}\n`;
+      
+      
 
-    for (var i = 0; i < selected.length; i++) {
-    fs.appendFile(seedDataFile, `${selected[i]['productName']}|${selected[i]['categoryName']}|${selected[i]['productType']}|${selected[i]['description']}|${selected[i]['specification']}|${selected[i]['catchphrase']}|${selected[i]['productDetails']}|${selected[i]['price']}|${selected[i]['image']}\n`, 'utf-8', (err) => {
-      if (err) {
-        console.error(err)
-      }
-      })
+      writeFile.write(template)
 
-    }
-    selected = [];
-    total = total - 10000;
   }
+  writeFile.end();
+
   }
 
-fakeDataGenerator(100000)
+fakeDataGenerator(1000000)
 
 
 
