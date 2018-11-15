@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const dbConnection = require('./index.js');
+const {postgres} = require('./index.js');
 
 /*
 
@@ -18,8 +18,8 @@ const dbConnection = require('./index.js');
 
 // product details
 
-const Products = dbConnection.define(
-  'productDetails',
+const Products = postgres.define(
+  'productdetails',
   {
     id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
     item_name: { type: Sequelize.STRING },

@@ -70,10 +70,6 @@ export default class App extends Component {
               <BoostDetails products={value} />
             ))}
           </div>
-
-          <div className={style.pictureFeed}>
-            <div className="elfsight-app-63ecb780-3c15-47e5-89b8-9ea83d0343c9" />
-          </div>
         </div>
       );
     } else if (this.props.view === 'recommended') {

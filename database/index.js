@@ -1,22 +1,16 @@
 const mysql = require('mysql');
-const Sequelize = require('sequelize');
+const seq = require ('sequelize');
+const postgres = require('pg');
 const { env } = require('../env/.env');
 
-const sequelize = new Sequelize(env.database, env.dbHost, env.dbPassword, {
+const connectionPostgres = new seq(env.database, env.dbHost, env.dbPassword, {
   host: env.HOSTNAME,
-  dialect: 'mysql',
-
-  pool: {
-    max: 2,
-    min: 0,
-    acquire: 30000,
-    idle: 5000,
-  },
+  dialect: 'postgres'
 });
 
-sequelize
+connectionPostgres
   .authenticate()
-  .then(() => console.log('connect to mysql!'))
+  .then(() => console.log('connect to postgres!'))
   .catch(err => console.error(err));
 
-module.exports = sequelize;
+module.exports.postgres = connectionPostgres;
