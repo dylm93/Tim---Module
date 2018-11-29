@@ -30,6 +30,7 @@ export default class App extends Component {
         let product = data.data;
         let randomized = product.sort(() => 0.5 - Math.random());
         let selected = randomized.slice(0, 50);
+        console.log(selected)
         this.setState({
           products: selected,
         });
@@ -43,7 +44,8 @@ export default class App extends Component {
     const otherProducts = [];
 
     productArr.forEach(boost => {
-      if (boost.item_name.toLowerCase().includes('ultraboost')) {
+      if (boost.item_name.includes('Fantastic')) {
+        console.log('hello')
         boostTemp.push(boost);
       } else {
         otherProducts.push(boost);
@@ -69,6 +71,10 @@ export default class App extends Component {
             {ultraBoost.map((value, i) => (
               <BoostDetails products={value} />
             ))}
+          </div>
+
+          <div className={style.pictureFeed}>
+            <div className="elfsight-app-63ecb780-3c15-47e5-89b8-9ea83d0343c9" />
           </div>
         </div>
       );

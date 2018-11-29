@@ -8,7 +8,7 @@ import { ratingToStarTranslation } from '../../../helpers/helperFuncs.js';
 
 const Products = function(props) {
   const images = props.products.image;
-  const imagesArr = JSON.parse(images);
+  const imagesArr = images;
 
   const price = props.products.price.toString();
 
@@ -27,9 +27,7 @@ const Products = function(props) {
           <div className={style.productInfo}>
             <img
               className={style.img}
-              src={`http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/${
-                imagesArr[0].id
-              }/zoom/${imagesArr[0].fileName}?sh=1024`}
+              src={props.products.image}
             />
             <div className={style.favorite}>
               <div className={style.toggleWishList}>

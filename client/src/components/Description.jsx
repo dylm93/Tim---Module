@@ -3,7 +3,7 @@ import style from '../css/Description.css';
 
 const Description = function(props) {
   const product = props.products;
-  const imagesArr = JSON.parse(product.image);
+  const imagesArr = product.image;
 
   return (
     <div className={style.display}>
@@ -15,9 +15,7 @@ const Description = function(props) {
       <div>
         <img
           className={style.image}
-          src={`http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/${
-            imagesArr[0].id
-          }/zoom/${imagesArr[0].fileName}?sh=1024`}
+          src={imagesArr}
         />
       </div>
     </div>

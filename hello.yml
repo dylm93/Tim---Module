@@ -1,0 +1,11 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 5
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/shoedidas/product/details"
+      count: 20

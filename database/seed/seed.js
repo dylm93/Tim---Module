@@ -116,7 +116,8 @@ const fakeDataGenerator = (n) => {
       var catchphrase = faker.random.word();  
       var productDetails = faker.lorem.sentence();
       var price = Math.floor(Math.random() * (500 - 50)) + 50;
-      var image = `https://picsum.photos/200/300/?random`
+      var randomimageNum = Math.floor(Math.random() * (1000 - 0)) + 0;
+      var image = `https://loremflickr.com/320/240?lock=${randomimageNum}`
 
       var template = `${productName}|${categoryName}|${productType}|${description}|${specification}|${catchphrase}|${productDetails}|${price}|${image}\n`;
       

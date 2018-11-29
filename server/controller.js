@@ -5,9 +5,8 @@ const db = require('../database/models.js');
 
 const Controller = {
   get: (req, res) => {
-    db.Products.findAll({})
-      .then(data => res.status(200).send(data))
-      .catch(err => console.error(err));
+    db.Products.findAll({order: [['id', 'DESC']], limit: 100 })
+      .then(data=>res.send(data))
   },
 
   post: (req, res) => {

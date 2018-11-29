@@ -29,7 +29,8 @@ export default class ProductDetails extends Component {
   render() {
     //for Specs;
     const specifications = this.props.products.specification;
-    const specArr = JSON.parse(specifications);
+    const specArr = specifications;
+    
 
     return (
       <div className={style.boostParent}>
@@ -92,9 +93,9 @@ export default class ProductDetails extends Component {
             <ProductSnapshot snapshots={exportObj} />
           </div>
         </div>
-        <div className={style.picturesShare}>
+        {/* <div className={style.picturesShare}>
           <PicturesShare />
-        </div>
+        </div> */}
       </div>
     );
   }
