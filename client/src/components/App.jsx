@@ -26,7 +26,7 @@ export default class App extends Component {
 
   fetchData() {
     axios
-      .get('http://ec2-52-91-57-40.compute-1.amazonaws.com/shoedidas/product/details')
+      .get('http://ec2-52-91-57-40.compute-1.amazonaws.com/loaderio-a1a39b1e4e1b302132a4263da8dd5f3c/shoedidas/product/details')
       .then(data => {
         let product = data.data;
         let randomized = product.sort(() => 0.5 - Math.random());
