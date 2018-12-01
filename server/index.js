@@ -16,6 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.use('/shoedidas', router);
+app.use('/loaderio-a1a39b1e4e1b302132a4263da8dd5f3c/shoedidas', router);
 
 module.exports = app;
